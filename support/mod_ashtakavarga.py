@@ -4,6 +4,21 @@
 import support.mod_astrodata as data
 import support.mod_general as gen
 
+
+def reset_bhinna_ashtaka_varga_points():
+    """Resets the BhinnaAshtakaVargaPoints dictionary to its initial state."""
+    BhinnaAshtakaVargaPoints = {"Sun": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                              "Moon": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                              "Mars": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                              "Mercury": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                              "Jupiter": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                              "Venus": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                              "Saturn": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+                              "Total": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+                              }
+    return BhinnaAshtakaVargaPoints
+
+
 #Bhinna ashtaka varga mappings 
 BAV_BinduMatrix = {
     "Sun": { "Sun" : [1,2,4,7,8,9,10,11],   #Sun is benefic from suns 1st, 2nd, 4th, ... 11th houses
@@ -81,6 +96,7 @@ BhinnaAshtakaVargaPoints = {"Sun" : [0,0,0,0,0,0,0,0,0,0,0,0],
                             }
 
 def compute_AshtakaVargas():
+    BhinnaAshtakaVargaPoints = reset_bhinna_ashtaka_varga_points()
     for planet in BAV_BinduMatrix:
         for refPlanet in BAV_BinduMatrix[planet]:
             planet_BAV_points = BhinnaAshtakaVargaPoints[planet]
